@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresas Con Cream Y Mini Donas</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Estilos para el menú responsivo en hamburguesa */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #fff;
+            color: #333;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #ff6f91;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 1.8em;
+            color: white;
+            margin: 0;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #f7a3b4; /* Color más claro al pasar el mouse */
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 1.5em;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Redes sociales en el menú superior */
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.5em;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #f7a3b4; /* Color más claro al pasar el mouse */
+        }
+
+        /* Estilos para la responsividad */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                display: none;
+                width: 100%;
+                background-color: #ff6f91;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            .social-icons {
+                display: none;
+            }
+        }
+
+        /* Estilos de las secciones */
+        section {
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #ff6f91;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .gallery img {
+            width: calc(50% - 10px);
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Estilos para el footer */
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #ff6f91;
+            color: white;
+            position: relative;
+            width: 100%;
+        }
+
+        /* Botón de volver arriba */
+        #scrollToTopBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            background-color: #ff6f91;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+        }
+
+        #scrollToTopBtn:hover {
+            background-color: #f7a3b4; /* Color más claro al pasar el mouse */
+        }
+
+        /* Estilos para formularios */
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        form label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        form input, form textarea {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            transition: border-color 0.3s;
+        }
+
+        form input:focus, form textarea:focus {
+            border-color: #ff6f91;
+            outline: none;
+        }
+
+        form button {
+            padding: 10px;
+            background-color: #ff6f91;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        form button:hover {
+            background-color: #f7a3b4; /* Color más claro al pasar el mouse */
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Fresas con Crema y Mini Donas</h1>
+        <i class="fas fa-bars menu-icon" onclick="toggleMenu()"></i>
+        <nav>
+            <ul id="menu">
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#beneficios">Beneficios</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#dudas-propuestas">Dudas y Propuestas</a></li>
+                <li><a href="#ofertas">Ofertas</a></li>
+                <li><a href="#about">Acerca de</a></li> <!-- Movido al final -->
+            </ul>
+        </nav>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/573136209246" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </header>
+
+    <!-- Sección Principal -->
+    <section id="home" class="main-section">
+        <div class="container">
+            <div class="card">
+                <img src="./images/fresas.jpg" alt="Fresas con Crema">
+                <h2>Fresas con Crema</h2>
+                <p>Las fresas con crema son un postre delicioso y refrescante que combina la frescura de las fresas maduras con la suavidad y dulzura de la crema. Perfecto para cualquier ocasión, especialmente en días calurosos.</p>
+            </div>
+            <div class="card">
+                <img src="./images/Minidonas.jpg" alt="Mini Donas">
+                <h2>Mini Donas</h2>
+                <p>Las mini donas son pequeños bocados de felicidad. Con una textura suave y un glaseado dulce, estas donas son perfectas para un antojo rápido o para acompañar con una bebida caliente.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Beneficios -->
+    <section id="beneficios" class="benefits-section">
+        <h2>Beneficios de Fresas con Crema y Mini Donas</h2>
+        <ul>
+            <li><strong>Fresas con Crema:</strong></li>
+            <p>Las fresas con crema son una deliciosa combinación que ofrece varios beneficios para la salud. Las fresas son una excelente fuente de vitamina C, esencial para fortalecer el sistema inmunológico y mejorar la salud de la piel. Además, contienen antioxidantes como los flavonoides, que ayudan a combatir el daño celular y reducir el riesgo de enfermedades crónicas. Este fruto también aporta fibra dietética, fundamental para una buena digestión y para prevenir el estreñimiento.</p>
+            <li><strong>Mini Donas:</strong></li>
+            <p>Las mini donas, aunque son un dulce, ofrecen ciertos beneficios si se consumen con moderación. Su tamaño pequeño facilita el control de las porciones, permitiendo satisfacer antojos dulces sin necesidad de consumir grandes cantidades. Esto puede ser útil para mantener un equilibrio en la dieta. Además, las mini donas vienen en una variedad de sabores y glaseados, proporcionando una experiencia culinaria diversa.</p>
+        </ul>
+    </section>
+
+    <!-- Sección de Galería -->
+    <section id="galeria" class="gallery-section">
+        <h2>Galería</h2>
+        <div class="gallery">
+            <img src="./images/1fresa.jpg" alt="Fresa 1">
+            <img src="./images/2fresa.jpg" alt="Fresa 2">
+            <img src="./images/1dona.jpg" alt="Dona 1">
+            <img src="./images/2dona.jpg" alt="Dona 2">
+        </div>
+    </section>
+
+    <!-- Sección de Testimonios -->
+    <section id="testimonios" class="testimonials-section">
+        <h2>Testimonios</h2>
+        <div class="testimonial">
+            <p>"Las fresas con crema son simplemente exquisitas. Nunca había probado algo tan refrescante y delicioso a la vez."</p>
+            <p><strong>- Jaider.</strong></p>
+        </div>
+        <div class="testimonial">
+            <p>"Las mini donas son mis favoritas. Son el tamaño perfecto para un antojo sin sentirte culpable."</p>
+            <p><strong>- Sebastian.</strong></p>
+        </div>
+        <div class="testimonial">
+            <p>"¡El sabor de las fresas con crema es inigualable! La combinación de frescura y dulzura es perfecta."</p>
+            <p><strong>- Mariana.</strong></p>
+        </div>
+        <div class="testimonial">
+            <p>"Nunca había probado mini donas tan suaves y bien glaseadas. Son mi opción favorita para el café de la tarde."</p>
+            <p><strong>- Alejandro.</strong></p>
+        </div>
+    </section>
+
+    <!-- Sección de Preguntas Frecuentes -->
+    <section id="faq" class="faq-section">
+        <h2>Preguntas Frecuentes</h2>
+        <div class="faq-item">
+            <h3>¿Cuál es la mejor forma de almacenar las fresas con crema?</h3>
+            <p>Se recomienda mantenerlas refrigeradas y consumirlas dentro de los dos primeros días para garantizar la frescura.</p>
+        </div>
+        <div class="faq-item">
+            <h3>¿Las mini donas contienen gluten?</h3>
+            <p>Sí, las mini donas tradicionales contienen gluten, pero ofrecemos opciones sin gluten bajo pedido.</p>
+        </div>
+        <div class="faq-item">
+            <h3>¿Puedo hacer fresas con crema con anticipación?</h3>
+            <p>Puedes preparar la crema con anticipación y mantenerla en el refrigerador, pero es mejor agregar las fresas justo antes de servir.</p>
+        </div>
+    </section>
+
+    <!-- Sección de Ofertas y Promociones -->
+    <section id="ofertas" class="offers-section">
+        <h2>Ofertas y Promociones</h2>
+        <div class="offer">
+            <h3>Compra 1 y Llévate el Segundo a Mitad de Precio</h3>
+            <p>Disfruta de nuestra oferta especial en mini donas. ¡No te lo pierdas! Compra una docena y llévate la segunda a mitad de precio.</p>
+        </div>
+        <div class="offer">
+            <h3>Descuento del 10% en Fresas con Crema</h3>
+            <p>Obtén un 10% de descuento en tu primera compra de fresas con crema al ordenar en línea.</p>
+        </div>
+    </section>
+
+    <!-- Sección de Dudas y Propuestas -->
+<section id="dudas-propuestas" class="contact-section">
+    <h2>Dudas y Propuestas</h2>
+    <form id="dudasForm" method="POST">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+        <button type="submit">Enviar</button>
+    </form>
+</section>
+
+    <!-- Sección Nueva Acerca de -->
+    <section id="about" class="about-section">
+        <h2 style="color: #ff6f91;">Acerca de Nosotros</h2>
+        <p>Somos una empresa dedicada a crear momentos dulces y especiales con nuestras fresas con crema y mini donas. Nuestro objetivo es ofrecer productos de alta calidad que deleiten a nuestros clientes, brindando siempre una experiencia única y sabrosa. Creemos en la importancia de los ingredientes frescos y en un servicio que esté a la altura de tus expectativas.</p>
+    </section>
+
+    <!-- Botón de volver arriba -->
+    <button id="scrollToTopBtn" onclick="scrollToTop()">&#9650;</button>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Fresas Con Crema Y Mini Donas</p> 
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('show');
+        }
+
+        // Mostrar botón de volver arriba al hacer scroll
+        window.onscroll = function() {
+            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                scrollToTopBtn.style.display = "block";
+            } else {
+                scrollToTopBtn.style.display = "none";
+            }
+        };
+
+        function scrollToTop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+
+<script>
+    const form = document.getElementById('dudasForm');
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault(); // Prevenir el envío del formulario por defecto
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData);
+
+        try {
+            const response = await fetch('http://localhost:3000/dudas', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+
+            const result = await response.json();
+            console.log('Duda o propuesta enviada con éxito:', result);
+            alert('¡Gracias por tu mensaje! Nos pondremos en contacto pronto.');
+            form.reset(); // Reinicia el formulario
+        } catch (error) {
+            console.error('Error al enviar el mensaje:', error);
+            alert('Ocurrió un error al enviar tu mensaje. Por favor, inténtalo de nuevo.');
+        }
+    });
+</script>
+</body>
+</html>

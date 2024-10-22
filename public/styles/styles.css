@@ -1,0 +1,535 @@
+/* styles.css */
+
+/* Reseteo básico de márgenes y relleno */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff5f8;
+    color: #4b2b30;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body:hover {
+    background-color: #ffeef2;
+    color: #333333;
+}
+
+/* Encabezado */
+header {
+    background: linear-gradient(135deg, #ff6f91 0%, #ffdfdf 100%);
+    padding: 20px;
+    border-radius: 0 0 20px 20px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s, box-shadow 0.3s;
+    animation: fadeIn 1s ease-out;
+}
+
+header:hover {
+    background: linear-gradient(135deg, #ff5f7d 0%, #ffbfbf 100%);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+header h1 {
+    color: #ffffff;
+    font-size: 2.5em;
+    margin: 0;
+    transition: transform 0.3s, color 0.3s, text-shadow 0.3s;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+header:hover h1 {
+    transform: scale(1.05) rotate(-2deg);
+    color: #ffdfdf;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Navegación */
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s, text-shadow 0.3s, transform 0.3s, letter-spacing 0.3s;
+    padding-bottom: 5px;
+}
+
+nav ul li a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    height: 3px;
+    width: 0;
+    background: #ffdfdf;
+    transition: width 0.3s, background-color 0.3s;
+}
+
+nav ul li a:hover::before {
+    width: 100%;
+    background-color: #ffffff;
+}
+
+nav ul li a:hover {
+    color: #ffdfdf;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px) scale(1.1);
+    letter-spacing: 0.5px;
+}
+
+/* Sección principal */
+.main-section {
+    padding: 20px;
+    max-width: 1200px;
+}
+
+/* Contenedor de tarjetas */
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+/* Tarjetas */
+.card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 320px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s, border 0.3s, background-color 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid transparent;
+    animation: fadeIn 1s ease-out;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    border: 2px solid #ff6f91;
+    background-color: #ffe0e6;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    object-fit: cover;
+    transition: transform 0.3s, filter 0.3s, box-shadow 0.3s, border-color 0.3s;
+    border: 2px solid #ff6f91;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card img:hover {
+    transform: scale(1.1) rotate(2deg);
+    filter: brightness(1.2);
+    border-color: #ff4c6d;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card h2 {
+    color: #ff6f91;
+    font-size: 1.8em;
+    margin: 10px 0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.card:hover h2 {
+    color: #ff4c6d;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Sección de beneficios */
+.benefits-section {
+    background-color: #ffe0e6;
+    padding: 40px 20px;
+    width: 100%;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    border-bottom: 3px solid #ff6f91;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-out;
+}
+
+.benefits-section:hover {
+    background-color: #ffccd5;
+    transform: scale(1.02) rotate(1deg);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.benefits-section h2 {
+    color: #ff6f91;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.benefits-section:hover h2 {
+    color: #ff4c6d;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Sección de galería */
+.gallery-section {
+    padding: 20px;
+    max-width: 1200px;
+    border-top: 3px solid #ff6f91;
+}
+
+.gallery-section h2 {
+    text-align: center;
+    color: #ff6f91;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.gallery-section:hover h2 {
+    color: #ff4c6d;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para la galería */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+/* Estilos para cada imagen de la galería */
+.gallery img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s, filter 0.3s, border-color 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.1) rotate(1deg);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    filter: brightness(1.2);
+    border-color: #ff4c6d;
+}
+
+/* Sección de testimonios */
+.testimonials-section {
+    background-color: #fff0f3;
+    padding: 40px 20px;
+    width: 100%;
+    text-align: center;
+    border-top: 3px solid #ff6f91;
+}
+
+.testimonials-section h2 {
+    color: #ff6f91;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo de cada testimonio */
+.testimonial {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+    animation: fadeIn 1s ease-out;
+}
+
+.testimonial:hover {
+    transform: translateY(-5px) rotate(-1deg);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    background-color: #fff9f9;
+}
+
+.testimonial p {
+    color: #4b2b30;
+    font-style: italic;
+    transition: color 0.3s;
+}
+
+.testimonial:hover p {
+    color: #333333;
+}
+
+/* Sección de preguntas frecuentes */
+.faq-section {
+    background-color: #ffe0e6;
+    padding: 40px 20px;
+    width: 100%;
+    border-bottom: 3px solid #ff6f91;
+}
+
+.faq-section h2 {
+    color: #ff6f91;
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo de cada pregunta frecuente */
+.faq-item {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    max-width: 800px;
+    margin: 0 auto;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.faq-item:hover {
+    background-color: #fffbfb;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px) scale(1.02);
+}
+
+.faq-item h3 {
+    color: #4b2b30;
+    margin: 0 0 10px 0;
+    transition: color 0.3s;
+}
+
+.faq-item:hover h3 {
+    color: #ff6f91;
+}
+
+/* Sección de contacto */
+.contact-section {
+    background-color: #fff0f3;
+    padding: 40px 20px;
+    width: 100%;
+    text-align: center;
+    border-top: 3px solid #ff6f91;
+}
+
+.contact-section h2 {
+    color: #ff6f91;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo del formulario */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    transition: background-color 0.3s, border-color 0.3s;
+    border: 1px solid #ff6f91;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #ffffff;
+    animation: fadeIn 1s ease-out;
+}
+
+form:hover {
+    background-color: #ffebf0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: scale(1.02);
+}
+
+form label {
+    font-weight: bold;
+    color: #4b2b30;
+    transition: color 0.3s;
+}
+
+form input, form textarea {
+    width: 90%;
+    padding: 12px;
+    border: 1px solid #ff6f91;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
+}
+
+form input:focus, form textarea:focus {
+    border-color: #ff4c6d;
+    box-shadow: 0 0 5px rgba(255, 76, 109, 0.3);
+    background-color: #fff5f7;
+}
+
+form button {
+    background-color: #ff6f91;
+    color: #ffffff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+form button:hover {
+    background-color: #ff5773;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05);
+}
+
+/* Pie de página */
+footer {
+    background-color: #ff6f91;
+    color: #ffffff;
+    padding: 15px;
+    width: 100%;
+    max-width: 2000px;
+    text-align: center;
+    border-radius: 10 10;
+    position: relative;
+    bottom: 0;
+    margin: 0 auto;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+footer:hover {
+    background-color: #ff5773;
+    box-shadow: 0 -6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Iconos sociales */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-icons a {
+    color: #ffffff;
+    font-size: 1.5em;
+    transition: color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.social-icons a:hover {
+    color: #ffdfdf;
+    transform: scale(1.1) rotate(10deg);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos del botón de volver arriba */
+#scrollToTopBtn {
+    display: none; /* Ocultar el botón por defecto */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+#scrollToTopBtn:hover {
+    background-color: #e55b4f;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Sección de ofertas */
+.offers-section {
+    padding: 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+    border-bottom: 3px solid #ff6f91; /* Línea rosada */
+}
+
+.offers-section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.offer {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px auto;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.offer h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.offer p {
+    font-size: 1em;
+    color: #555;
+}
